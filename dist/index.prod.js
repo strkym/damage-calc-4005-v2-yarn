@@ -1,0 +1,1 @@
+"use strict";function effectiveDamage(e,a,r){var n=normalize(a)-normalize(r),t=(n=n<=0?0:n)/(100+n);return Math.round(normalize(e)*(1-t))}function normalize(e){return e<0?0:2e3<=e?2e3:e}module.exports={effectiveDamage:effectiveDamage};

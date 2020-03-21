@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * 攻撃力が防御力や防御力貫通によってどのようなダメージになるのかを計算する関数
  * 
@@ -14,18 +13,20 @@
  * @param {Number} armorPenetration 防御力貫通
  * @return {Number} ダメージ
  */
+
 function effectiveDamage(power, armor, armorPenetration) {
-  let effectiveArmor = normalize(armor) - normalize(armorPenetration);
+  var effectiveArmor = normalize(armor) - normalize(armorPenetration);
   effectiveArmor = effectiveArmor <= 0 ? 0 : effectiveArmor;
-  const damageDecrease = effectiveArmor / (100 + effectiveArmor);
+  var damageDecrease = effectiveArmor / (100 + effectiveArmor);
   return Math.round(normalize(power) * (1 - damageDecrease));
 }
-
 /**
  * 異常な可能性のある入力値を正常値にする
  * @param {Number} n 異常な可能性のある入力値
  * @return {Number} 正常値
  */
+
+
 function normalize(n) {
   if (n < 0) {
     return 0;
